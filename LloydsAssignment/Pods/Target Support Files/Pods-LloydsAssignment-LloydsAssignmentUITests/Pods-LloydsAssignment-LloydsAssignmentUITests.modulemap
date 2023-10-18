@@ -1,0 +1,6 @@
+framework module Pods_LloydsAssignment_LloydsAssignmentUITests {
+  umbrella header "Pods-LloydsAssignment-LloydsAssignmentUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
