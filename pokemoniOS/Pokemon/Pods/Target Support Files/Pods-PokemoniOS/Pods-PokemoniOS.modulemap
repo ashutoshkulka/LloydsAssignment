@@ -1,0 +1,6 @@
+framework module Pods_PokemoniOS {
+  umbrella header "Pods-PokemoniOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

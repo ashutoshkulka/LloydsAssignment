@@ -1,0 +1,28 @@
+{
+  "chain": {
+    "evolves_to": [
+      {
+        "evolves_to": [
+          {
+            "evolves_to": [
+
+            ],
+            "species": {
+              "name": "charizard",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/6/"
+            }
+          }
+        ],
+        "species": {
+          "name": "charmeleon",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/5/"
+        }
+      }
+    ],
+    "species": {
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/4/"
+    }
+  },
+  "id": 1
+}
