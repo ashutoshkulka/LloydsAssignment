@@ -19,13 +19,13 @@
 		8E5613EA2ADA986F005C49D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5613E92ADA986F005C49D7 /* Constants.swift */; };
 		8EAFBBF62AEF8A96003E204D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF12AEF8A95003E204D /* LoadingView.swift */; };
 		8EAFBBF72AEF8A96003E204D /* KittenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF22AEF8A95003E204D /* KittenRow.swift */; };
-		8EAFBBF82AEF8A96003E204D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF32AEF8A95003E204D /* HomeView.swift */; };
 		8EAFBBF92AEF8A96003E204D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF42AEF8A95003E204D /* ErrorView.swift */; };
 		8EAFBBFA2AEF8A96003E204D /* KittenDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF52AEF8A95003E204D /* KittenDetailView.swift */; };
 		8EAFBC002AEF8B53003E204D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFB2AEF8B53003E204D /* APIService.swift */; };
 		8EAFBC012AEF8B53003E204D /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFC2AEF8B53003E204D /* APIServiceProtocol.swift */; };
 		8EAFBC032AEF8B53003E204D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFE2AEF8B53003E204D /* HomeViewModel.swift */; };
 		8EAFBC042AEF8B53003E204D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFF2AEF8B53003E204D /* APIError.swift */; };
+		8ECA35ED2AF0FF3D007702B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA35EC2AF0FF3D007702B3 /* HomeView.swift */; };
 		8EE877CC2ADF8BE90047DA05 /* KittenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */; };
 		9D39D8C376294817DC10DA10 /* Pods_LloydsAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77375F5D94DF0F0E00F6E681 /* Pods_LloydsAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,13 +66,13 @@
 		8E5613E92ADA986F005C49D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EAFBBF12AEF8A95003E204D /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8EAFBBF22AEF8A95003E204D /* KittenRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KittenRow.swift; sourceTree = "<group>"; };
-		8EAFBBF32AEF8A95003E204D /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "../../../../../Downloads/CatAPISwiftUI-main 2/CatAPIProject/CatAPIProject/view/HomeView.swift"; sourceTree = "<group>"; };
 		8EAFBBF42AEF8A95003E204D /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8EAFBBF52AEF8A95003E204D /* KittenDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KittenDetailView.swift; sourceTree = "<group>"; };
 		8EAFBBFB2AEF8B53003E204D /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8EAFBBFC2AEF8B53003E204D /* APIServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		8EAFBBFE2AEF8B53003E204D /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8EAFBBFF2AEF8B53003E204D /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		8ECA35EC2AF0FF3D007702B3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenTests.swift; sourceTree = "<group>"; };
 		94E1905BECC8BB1E32CD0E65 /* Pods-LloydsAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LloydsAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-LloydsAssignmentTests/Pods-LloydsAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		C946AE09EDF3A26169043372 /* Pods-LloydsAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LloydsAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-LloydsAssignmentTests/Pods-LloydsAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 		8E4926132AD9CE9200D39E4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8ECA35EC2AF0FF3D007702B3 /* HomeView.swift */,
 				8EAFBBF42AEF8A95003E204D /* ErrorView.swift */,
-				8EAFBBF32AEF8A95003E204D /* HomeView.swift */,
 				8EAFBBF52AEF8A95003E204D /* KittenDetailView.swift */,
 				8EAFBBF22AEF8A95003E204D /* KittenRow.swift */,
 				8EAFBBF12AEF8A95003E204D /* LoadingView.swift */,
@@ -495,11 +495,11 @@
 				8EAFBC012AEF8B53003E204D /* APIServiceProtocol.swift in Sources */,
 				8E4925DC2AD5633C00D39E4B /* LloydsAssignmentApp.swift in Sources */,
 				8EAFBBF72AEF8A96003E204D /* KittenRow.swift in Sources */,
-				8EAFBBF82AEF8A96003E204D /* HomeView.swift in Sources */,
 				8E5613EA2ADA986F005C49D7 /* Constants.swift in Sources */,
 				8EAFBC002AEF8B53003E204D /* APIService.swift in Sources */,
 				8EAFBBF92AEF8A96003E204D /* ErrorView.swift in Sources */,
 				8EAFBC032AEF8B53003E204D /* HomeViewModel.swift in Sources */,
+				8ECA35ED2AF0FF3D007702B3 /* HomeView.swift in Sources */,
 				8EAFBBF62AEF8A96003E204D /* LoadingView.swift in Sources */,
 				8EAFBC042AEF8B53003E204D /* APIError.swift in Sources */,
 			);
