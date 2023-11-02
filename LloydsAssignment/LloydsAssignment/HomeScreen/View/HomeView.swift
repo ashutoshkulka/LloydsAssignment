@@ -26,8 +26,11 @@ struct HomeView: View {
         Group {
             if homeViewModel.isLoading {
                 LoadingView()
-            } else if homeViewModel.errorMessage != nil  {
-                ErrorView(homeViewModel: homeViewModel)
+            } else if let  errorMessage = homeViewModel.errorMessage {
+                ErrorView(errorMessage: errorMessage) {
+                    //On retry button refresh Kittens List
+                    homeViewModel.fetchAllKittens()
+                }
             } else {
                 if let kittens = homeViewModel.kittens {
                     List(kittens, id: \.otherID) { kitten in

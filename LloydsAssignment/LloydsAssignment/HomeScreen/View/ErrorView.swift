@@ -9,16 +9,18 @@ import SwiftUI
 
 /// A view displayed when an error occurs in the app.
 struct ErrorView: View {
-    /// The view model responsible for handling home-related data and actions.
-    @ObservedObject var homeViewModel: HomeViewModel
-    
+    /// The error message to be displayed.
+    var errorMessage: String
+    /// A closure to be executed when the user taps the "Try Again" button.
+    var onRetry: () -> Void
+    /// The body of the view, describing the layout and behavior.
     var body: some View {
-        VStack {
+        VStack(spacing:Constants.Paddings.size10) {
             Text(Constants.String.errorMessage)
-            Text(homeViewModel.errorMessage ?? "")
-            Button {
-                homeViewModel.fetchAllKittens()
-            } label: {
+            Text(errorMessage)
+            Button(action: {
+                onRetry()
+            }) {
                 Text(Constants.String.tryAgain)
             }
         }
@@ -28,6 +30,8 @@ struct ErrorView: View {
 /// A preview provider for the ErrorView struct.
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(homeViewModel: HomeViewModel())
+        ErrorView(errorMessage: Constants.String.errorMessage) {
+            //Empty Implimetaion
+        }
     }
 }
