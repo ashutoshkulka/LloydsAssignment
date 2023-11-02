@@ -6,48 +6,46 @@
 
 import Foundation
 
-/// A view model class responsible for managing kitten data.
+/// View model responsible for managing the state and data related to displaying a list of kittens.
 class HomeViewModel: ObservableObject {
-    /// Published property representing an array of kitten objects.
+    /// The use case responsible for fetching kittens from the API.
+    private let fetchKittensUseCase: FetchKittensUseCase
+    /// The list of fetched kittens. It's an optional array of `Kitten` objects.
     @Published var kittens: [Kitten]?
-    /// Published property indicating whether the data is currently being loaded.
+    /// An error message to display in case of fetching failure.
+    @Published var errorMessage: String?
+    /// A boolean flag indicating whether the data is currently being loaded.
     @Published var isLoading: Bool = false
-    /// Published property representing any error messages that might occur during data fetching.
-    @Published var errorMessage: String? = nil
-    /// The service responsible for making API requests.
-    let service: APIServiceProtocol
-
-    /// Initializes the HomeViewModel with an optional APIServiceProtocol implementation.
+    
+    /// Initializes the `HomeViewModel` with a specified fetchKittensUseCase.
     ///
-    /// - Parameter service: An object conforming to APIServiceProtocol. Default is APIService().
-    init(service: APIServiceProtocol = APIService()) {
-        self.service = service
+    /// - Parameter fetchKittensUseCase: An object conforming to `FetchKittensUseCase` protocol, responsible for fetching kittens.
+    init(fetchKittensUseCase: FetchKittensUseCase) {
+        self.fetchKittensUseCase = fetchKittensUseCase
     }
     
-    /// Fetches a list of kittens from the API.
+    /// Fetches a list of kittens from the API using the `fetchKittensUseCase`.
     ///
-    /// - Note: Updates the `kittens`, `isLoading`, and `errorMessage` properties based on the result of the API request.
+    /// This method initiates the process of fetching kittens from the API. It sets `isLoading` to `true` to indicate that the data is being fetched.
+    /// After the fetch operation completes, the `isLoading` flag is set to `false`.
+    /// If the fetch operation is successful, the `kittens` property is updated with the fetched data. If the fetch operation fails, the `errorMessage` property is set with the localized description of the error.
     func fetchAllKittens() {
         isLoading = true
         errorMessage = nil
-        
         // Construct the URL for fetching kittens from the API.
         let url = URL(string: Constants.URLPath.photosURL)
-        
-        // Make an API request to fetch kittens.
-        service.fetchKittens(KittenResponse.self, url: url) { [unowned self] result in
-            // Update UI-related properties on the main thread.
+        fetchKittensUseCase.execute(KittenResponse.self, url: url) { [weak self] result in
             DispatchQueue.main.async {
-                self.isLoading = false
+                self?.isLoading = false
                 switch result {
-                case .failure(let error):
-                    // Handle API request failure.
-                    self.errorMessage = error.localizedDescription
-                    print(error)
                 case .success(let kittens):
-                    // Handle API request success.
-                    print("--- success with \(kittens)")
-                    self.kittens = kittens.data
+                    if let kittensResponse = kittens as? KittenResponse {
+                        self?.kittens = kittensResponse.data
+                    } else {
+                        self?.errorMessage = Constants.String.noData
+                    }
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
                 }
             }
         }

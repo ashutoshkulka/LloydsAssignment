@@ -9,8 +9,9 @@ import SwiftUI
 
 /// The main view displaying a list of kittens or an error message in case of failure.
 struct HomeView: View {
+    
     /// The view model responsible for managing home-related data and actions.
-    @StateObject var homeViewModel = HomeViewModel()
+    @StateObject var homeViewModel = HomeViewModel(fetchKittensUseCase: FetchKittensInteractor(repository: APIService()))
     var body: some View {
         NavigationView {
             content
@@ -32,7 +33,8 @@ struct HomeView: View {
                     homeViewModel.fetchAllKittens()
                 }
             } else {
-                if let kittens = homeViewModel.kittens {
+                
+                if let kittens = homeViewModel.kittens{
                     List(kittens, id: \.otherID) { kitten in
                         NavigationLink {
                             KittenDetailView(kitten: kitten)
@@ -40,6 +42,7 @@ struct HomeView: View {
                             KittenRow(kitten: kitten)
                         }
                     }
+                    
                 } else {
                     VStack()  {
                         Text(Constants.String.noData)
