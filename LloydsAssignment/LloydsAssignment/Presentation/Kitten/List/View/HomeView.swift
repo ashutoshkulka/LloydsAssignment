@@ -52,9 +52,3 @@ struct HomeView <ViewModel>: View where ViewModel: HomeViewModelUseCase {
     }
 }
 
-/// Kitten extenion to create generic id for Kitten
-extension Kitten {
-    var otherID: String {
-        "other\(UUID())"
-    }
-}

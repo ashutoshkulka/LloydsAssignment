@@ -13,12 +13,12 @@ private typealias Padding = Constants.Paddings
 /// A view displaying detailed information about a specific kitten, including its image, title, description, and URL.
 struct KittenDetailView: View {
     /// The kitten object containing detailed information about the displayed kitten.
-    let kitten: Kitten
+    let kitten: KittenData
     
     var body: some View {
         ScrollView {
             VStack {
-                if let url = URL(string: kitten.url) {
+                if let url = URL(string: kitten.imageUrl) {
                     // Display the kitten image asynchronously
                     KFImage(url)
                         .placeholder { progress in
@@ -35,15 +35,15 @@ struct KittenDetailView: View {
                 // Display the kitten title, description, and URL
                 VStack(alignment: .leading,
                        spacing: Padding.size15) {
-                    Text(kitten.title)
+                    Text(kitten.name)
                         .font(.headline)
                     Text(kitten.description)
                         .font(.footnote)
-                    Text(kitten.url)
+                    Text(kitten.imageUrl)
                     Spacer()
                 }.padding()
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle(kitten.title)
+                    .navigationTitle(kitten.name)
             }
         }
     }

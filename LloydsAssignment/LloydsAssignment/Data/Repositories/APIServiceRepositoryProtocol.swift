@@ -1,5 +1,5 @@
 //
-//  APIServiceRepository.swift
+//  APIServiceRepositoryProtocol.swift
 //  LloydsAssignment
 //
 //  Created by Ashutosh Kulkarni on 02/11/23.
@@ -8,9 +8,9 @@
 import Foundation
 
 /// A protocol defining the contract for a repository responsible for fetching kitten data from a remote source.
-protocol APIServiceRepository {
+protocol APIServiceRepositoryProtocol {
     /// The type representing the completion closure for fetching kittens.
-    typealias FetchCompletion = (FetchKittensUseCase.Result) -> Void
+    typealias FetchCompletion = (FetchKittensUseCase.ResponseDataProvider) -> Void
     /// Fetches data of the specified type from the provided URL asynchronously.
     ///
     /// - Parameters:

@@ -12,7 +12,7 @@ protocol HomeViewModelUseCase: ObservableObject {
     /// Represents the result of a data provider operation, containing either a value of type `T` or an API error.
     typealias ResponseDataProvider<T> = Swift.Result<T, APIError>
     /// An array of kittens fetched from the data source.
-    var kittens: [Kitten]? { get }
+    var kittens: [KittenData]? { get }
     /// An optional error message indicating any issues occurred during the data fetch operation.
     var errorMessage: String? { get }
     /// A boolean value indicating whether data is currently being loaded.
@@ -22,6 +22,6 @@ protocol HomeViewModelUseCase: ObservableObject {
     /// Initializes the HomeViewModelUseCase with a FetchKittensUseCase instance.
     ///
     /// - Parameter fetchKittensUseCase: An instance conforming to the FetchKittensUseCase protocol, responsible for fetching kittens.
-    init(fetchKittensUseCase: FetchKittensUseCase)
+    init(fetchKittensUseCase: FetchKittensUseCaseProtocol)
 }
 

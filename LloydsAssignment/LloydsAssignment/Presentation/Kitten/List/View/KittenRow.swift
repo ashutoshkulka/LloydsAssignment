@@ -13,11 +13,11 @@ private typealias Padding = Constants.Paddings
 struct KittenRow: View {
     /// The kitten object containing information about the kitten to be displayed in the row.
     
-    let kitten: Kitten
+    let kitten: KittenData
     
     var body: some View {
         HStack {
-            if let url = URL(string: kitten.url) {
+            if let url = URL(string: kitten.imageUrl) {
                 KFImage(url)
                     .placeholder { image in
                         ProgressView(image)
@@ -32,7 +32,7 @@ struct KittenRow: View {
             }
             VStack(alignment: .leading,
                    spacing: Padding.size10) {
-                Text(kitten.title).font(.headline)
+                Text(kitten.name).font(.headline)
                 Text(kitten.description)
                     .font(.subheadline).lineLimit(Padding.size2)
             }

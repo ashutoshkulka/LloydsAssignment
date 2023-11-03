@@ -18,6 +18,7 @@ class HomeViewModelTests: XCTestCase {
         super.setUp()
         mockFetchKittensUseCase = MockFetchKittensUseCase()
         viewModel = HomeViewModel(fetchKittensUseCase: mockFetchKittensUseCase)
+
     }
     
     override func tearDownWithError() throws {
@@ -54,9 +55,9 @@ class HomeViewModelTests: XCTestCase {
             // Assert
             XCTAssertFalse(self.viewModel.isLoading)
             XCTAssertNotNil(self.viewModel.kittens)
-            XCTAssertEqual(self.viewModel.kittens?.first?.title, "Kitty 1")
+            XCTAssertEqual(self.viewModel.kittens?.first?.name, "Kitty 1")
             XCTAssertEqual(self.viewModel.kittens?.first?.description, "Adorable kitten")
-            XCTAssertEqual(self.viewModel.kittens?.first?.url, "https://example.com/kitty1.jpg")
+            XCTAssertEqual(self.viewModel.kittens?.first?.imageUrl, "https://example.com/kitty1.jpg")
             
             XCTAssertNil(self.viewModel.errorMessage)
             // Fulfill the expectation
@@ -94,11 +95,14 @@ class HomeViewModelTests: XCTestCase {
     }
 }
 
+// Mock implementation of FetchKittensUseCaseProtocol for testing
+class MockFetchKittensUseCase: FetchKittensUseCaseProtocol {
+    var result: FetchKittensUseCaseProtocol.ResponseDataProvider?
 
-class MockFetchKittensUseCase: FetchKittensUseCase {
-    var result: FetchKittensUseCase.Result = .failure(APIError.unknown)
-    
-    func execute<T>(_ type: T.Type, url: URL?, completion: @escaping (FetchKittensUseCase.Result) -> Void) where T: Decodable {
-        completion(result)
+    func fetchAllKittens<T>(_ type: T.Type, url: URL?, completion: @escaping (FetchKittensUseCaseProtocol.ResponseDataProvider) -> Void) where T : Decodable {
+        if let stubResult = result {
+            completion(stubResult)
+        }
     }
 }
+

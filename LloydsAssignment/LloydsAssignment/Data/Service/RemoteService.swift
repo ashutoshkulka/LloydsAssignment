@@ -1,19 +1,19 @@
 //
-//  APIService.swift
-//  APIService
+//  RemoteService.swift
+//  RemoteService
 //
 //  Created by Ashutosh Kulkarni.
 
 import Foundation
 
 /// A service responsible for making API requests and handling responses.
-struct APIService: APIServiceRepository {
+struct RemoteService: APIServiceRepositoryProtocol {
     /// Fetches a list of kittens from the API.
     ///
     /// - Parameters:
     ///   - url: The URL to fetch the kittens from.
     ///   - completion: A closure to be called once the fetch operation is completed. It contains a `Result` object representing either the array of kittens or an error.
-    func execute<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping APIServiceRepository.FetchCompletion) {
+    func execute<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping APIServiceRepositoryProtocol.FetchCompletion) {
         guard let url = url else {
             let error = APIError.badURL
             completion(Result.failure(error))
@@ -29,7 +29,7 @@ struct APIService: APIServiceRepository {
                 let decoder = JSONDecoder()
                 do {
                     let kittens = try decoder.decode(type, from: data)
-                    completion(FetchKittensUseCase.Result.success(kittens))
+                    completion(FetchKittensUseCase.ResponseDataProvider.success(kittens))
                 } catch {
                     completion(Result.failure(APIError.parsing(error as? DecodingError)))
                 }

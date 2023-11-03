@@ -11,9 +11,9 @@ import SwiftUI
 struct LloydsAssignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            let service = APIService()
-            let fetchKittensInteractor = FetchKittensInteractor(repository: service)
-            let homeViewModel = HomeViewModel(fetchKittensUseCase: fetchKittensInteractor)
+            let service = RemoteService()
+            let fetchKittensUseCase = FetchKittensUseCase(repository: service)
+            let homeViewModel = HomeViewModel(fetchKittensUseCase: fetchKittensUseCase)
             HomeView(homeViewModel: homeViewModel)
         }
     }
