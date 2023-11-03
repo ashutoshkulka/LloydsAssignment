@@ -21,16 +21,14 @@ struct KittenDetailView: View {
                 if let url = URL(string: kitten.url) {
                     // Display the kitten image asynchronously
                     KFImage(url)
-                        .placeholder { p in
-                            ProgressView(p)
+                        .placeholder { progress in
+                            ProgressView(progress)
                         }
                         .resizable()
                         .scaledToFit()
                         .clipped()
                         .frame(maxHeight: Padding.size300)
-                        
-
-                }else {
+                } else {
                     // Display a gray placeholder if the URL is invalid
                     Color.gray.frame(height: Padding.size300)
                 }

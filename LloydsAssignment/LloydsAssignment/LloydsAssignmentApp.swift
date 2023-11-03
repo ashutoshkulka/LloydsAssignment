@@ -11,7 +11,10 @@ import SwiftUI
 struct LloydsAssignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            let service = APIService()
+            let fetchKittensInteractor = FetchKittensInteractor(repository: service)
+            let homeViewModel = HomeViewModel(fetchKittensUseCase: fetchKittensInteractor)
+            HomeView(homeViewModel: homeViewModel)
         }
     }
 }

@@ -12,20 +12,20 @@ struct Constants {
     
     /// A nested struct containing padding sizes used for layout spacing.
     struct Paddings {
-        /// The padding size of 200 points.
-        static let size200 = 200.0
-        /// The padding size of 10 points.
-        static let size10 = 10.0
-        /// The padding size of 100 points.
-        static let size100 = 100.0
         /// The padding sixe og 2 points.
         static let size2 = 2
-        /// The padding size of 300 points.
-        static let size300 = 300.0
+        /// The padding size of 10 points.
+        static let size10 = 10.0
         /// The padding size of 15 points.
         static let size15 = 15.0
         /// The padding size of 20 points.
         static let size20 = 20.0
+        /// The padding size of 50 points.
+        static let size50 = 50.0
+        /// The padding size of 200 points.
+        static let size200 = 200.0
+        /// The padding size of 300 points.
+        static let size300 = 300.0
     }
     
     /// A nested struct containing string constants used in the application.
@@ -47,6 +47,6 @@ struct Constants {
     /// A nested struct containing URL paths used for network requests.
     struct URLPath {
         /// The URL path for fetching photos from a remote server.
-        static let photosURL = "https://fakerapi.it/api/v1/images?_quantity9&_type=kittens&_height=300"
+        static let photosURL = "https://fakerapi.it/api/v1/images?_quantity=99&_type=kittens&_height=300"
     }
 }

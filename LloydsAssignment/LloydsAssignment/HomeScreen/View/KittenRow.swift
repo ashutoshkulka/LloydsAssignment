@@ -19,16 +19,16 @@ struct KittenRow: View {
         HStack {
             if let url = URL(string: kitten.url) {
                 KFImage(url)
-                    .placeholder { p in
-                        ProgressView(p)
+                    .placeholder { image in
+                        ProgressView(image)
                     }.scaledToFill()
-                    .frame(width: Padding.size100,
-                           height: Padding.size100)
+                    .frame(width: Padding.size50,
+                           height: Padding.size50)
                     .clipped().clipShape(.circle)
                 
             }else {
-                Color.gray.frame(width: Padding.size100,
-                                 height: Padding.size100)
+                Color.gray.frame(width: Padding.size50,
+                                 height: Padding.size50)
             }
             VStack(alignment: .leading,
                    spacing: Padding.size10) {

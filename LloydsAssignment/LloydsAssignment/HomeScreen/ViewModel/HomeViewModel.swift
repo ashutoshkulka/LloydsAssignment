@@ -6,21 +6,20 @@
 
 import Foundation
 
-/// View model responsible for managing the state and data related to displaying a list of kittens.
-class HomeViewModel: ObservableObject {
-    /// The use case responsible for fetching kittens from the API.
-    private let fetchKittensUseCase: FetchKittensUseCase
-    /// The list of fetched kittens. It's an optional array of `Kitten` objects.
+/// A view model responsible for managing the state and data related to displaying a list of kittens.
+class HomeViewModel: HomeViewModelUseCase, ObservableObject {
+    /// Published property holding an array of kittens.
     @Published var kittens: [Kitten]?
-    /// An error message to display in case of fetching failure.
+    /// Published property holding an error message, if any, occurred during the data fetch.
     @Published var errorMessage: String?
-    /// A boolean flag indicating whether the data is currently being loaded.
+    /// Published property indicating whether the data is currently being loaded.
     @Published var isLoading: Bool = false
-    
-    /// Initializes the `HomeViewModel` with a specified fetchKittensUseCase.
-    ///
-    /// - Parameter fetchKittensUseCase: An object conforming to `FetchKittensUseCase` protocol, responsible for fetching kittens.
-    init(fetchKittensUseCase: FetchKittensUseCase) {
+    /// The use case responsible for fetching kittens.
+    private let fetchKittensUseCase: FetchKittensUseCase
+ 
+    /// Initializes the view model with a given fetchKittensUseCase.
+    /// - Parameter fetchKittensUseCase: The use case responsible for fetching kittens.
+    required init(fetchKittensUseCase: FetchKittensUseCase) {
         self.fetchKittensUseCase = fetchKittensUseCase
     }
     
