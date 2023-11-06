@@ -10,7 +10,6 @@ import XCTest
 import Combine
 @testable import LloydsAssignment
 
-
 class KittenResponseToDomainDataListMapperTests: XCTestCase {
     
     func testMapping() {

@@ -59,10 +59,10 @@ class HomeViewModelTests: XCTestCase {
             
             // Assert
             XCTAssertFalse(self.viewModel.isLoading)
-            XCTAssertNotNil(self.viewModel.kittenDomainModel)
-            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.name, "Kitty 1")
-            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.description, "Adorable kitten")
-            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.imageUrl, "https://example.com/kitty1.jpg")
+            XCTAssertNotNil(self.viewModel.kittenDomainObjects)
+            XCTAssertEqual(self.viewModel.kittenDomainObjects?.first?.name, "Kitty 1")
+            XCTAssertEqual(self.viewModel.kittenDomainObjects?.first?.description, "Adorable kitten")
+            XCTAssertEqual(self.viewModel.kittenDomainObjects?.first?.imageUrl, "https://example.com/kitty1.jpg")
             
             XCTAssertNil(self.viewModel.errorMessage)
             // Fulfill the expectation
@@ -82,7 +82,7 @@ class HomeViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertTrue(viewModel.isLoading)
-        XCTAssertNil(viewModel.kittenDomainModel?.kittenDomainObjects)
+        XCTAssertNil(viewModel.kittenDomainObjects)
         
         // Wait for an expectation to be fulfilled, timeout after a certain interval
         let expectation = XCTestExpectation(description: "Fetch kittens expectation")
@@ -119,8 +119,6 @@ class MockKittenResponseToDomainDataListMapper: KittensDomainDataMapperProtocol 
         })
     }
 }
-
-
 
 private enum CustomError: Error {
     case invalidURL

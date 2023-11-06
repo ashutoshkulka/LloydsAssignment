@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4951A61CDF5D19A59328AE5D /* Pods_LloydsAssignment_LloydsAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E537E995DFAE645901505ACF /* Pods_LloydsAssignment_LloydsAssignmentUITests.framework */; };
 		8722D9D07BEDB235D49FC468 /* Pods_LloydsAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE6AFFCD2729B978528CC02 /* Pods_LloydsAssignment.framework */; };
-		8E1306792AF516DC000FC12B /* KittenDomainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1306782AF516DC000FC12B /* KittenDomainData.swift */; };
+		8E1306792AF516DC000FC12B /* KittenDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1306782AF516DC000FC12B /* KittenDomainModel.swift */; };
 		8E1306982AF51D02000FC12B /* KittenDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1306972AF51D02000FC12B /* KittenDataTests.swift */; };
 		8E4925DC2AD5633C00D39E4B /* LloydsAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4925DB2AD5633C00D39E4B /* LloydsAssignmentApp.swift */; };
 		8E4925E02AD5633E00D39E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4925DF2AD5633E00D39E4B /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		8E4926192AD9CEE200D39E4B /* KittenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4926182AD9CEE200D39E4B /* KittenResponse.swift */; };
 		8E5613EA2ADA986F005C49D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5613E92ADA986F005C49D7 /* Constants.swift */; };
 		8E5614C92AF9005500B0ECB8 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5614C82AF9005500B0ECB8 /* ServiceProtocol.swift */; };
+		8E5614CC2AF9275500B0ECB8 /* RemoteServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5614CB2AF9275500B0ECB8 /* RemoteServiceTests.swift */; };
 		8EA2501B2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */; };
 		8EA2501D2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501C2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift */; };
 		8EA2501F2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */; };
@@ -61,7 +62,7 @@
 		64689270A43FBCF4EE0D0CBD /* Pods-LloydsAssignment-LloydsAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LloydsAssignment-LloydsAssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-LloydsAssignment-LloydsAssignmentUITests/Pods-LloydsAssignment-LloydsAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6FA38613D0EF78B70F17413B /* Pods-LloydsAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LloydsAssignment.release.xcconfig"; path = "Target Support Files/Pods-LloydsAssignment/Pods-LloydsAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		77375F5D94DF0F0E00F6E681 /* Pods_LloydsAssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LloydsAssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E1306782AF516DC000FC12B /* KittenDomainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenDomainData.swift; sourceTree = "<group>"; };
+		8E1306782AF516DC000FC12B /* KittenDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenDomainModel.swift; sourceTree = "<group>"; };
 		8E1306972AF51D02000FC12B /* KittenDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenDataTests.swift; sourceTree = "<group>"; };
 		8E4925D82AD5633C00D39E4B /* LloydsAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LloydsAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4925DB2AD5633C00D39E4B /* LloydsAssignmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LloydsAssignmentApp.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		8E4926182AD9CEE200D39E4B /* KittenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KittenResponse.swift; sourceTree = "<group>"; };
 		8E5613E92ADA986F005C49D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E5614C82AF9005500B0ECB8 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		8E5614CB2AF9275500B0ECB8 /* RemoteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceTests.swift; sourceTree = "<group>"; };
 		8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittensDomainDataMapperProtocol.swift; sourceTree = "<group>"; };
 		8EA2501C2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenResponseToDomainDataListMapper.swift; sourceTree = "<group>"; };
 		8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenResponseToDomainDataListMapperTests.swift; sourceTree = "<group>"; };
@@ -150,7 +152,7 @@
 		8E1306772AF516A2000FC12B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8E1306782AF516DC000FC12B /* KittenDomainData.swift */,
+				8E1306782AF516DC000FC12B /* KittenDomainModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 				8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */,
 				8E1306972AF51D02000FC12B /* KittenDataTests.swift */,
 				8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */,
+				8E5614CB2AF9275500B0ECB8 /* RemoteServiceTests.swift */,
 			);
 			path = LloydsAssignmentTests;
 			sourceTree = "<group>";
@@ -627,7 +630,7 @@
 				8ECA35ED2AF0FF3D007702B3 /* HomeView.swift in Sources */,
 				8EAFBBF62AEF8A96003E204D /* LoadingView.swift in Sources */,
 				8E5614C92AF9005500B0ECB8 /* ServiceProtocol.swift in Sources */,
-				8E1306792AF516DC000FC12B /* KittenDomainData.swift in Sources */,
+				8E1306792AF516DC000FC12B /* KittenDomainModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5614CC2AF9275500B0ECB8 /* RemoteServiceTests.swift in Sources */,
 				8E1306982AF51D02000FC12B /* KittenDataTests.swift in Sources */,
 				8EA2501F2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift in Sources */,
 				8EE877CC2ADF8BE90047DA05 /* KittenTests.swift in Sources */,

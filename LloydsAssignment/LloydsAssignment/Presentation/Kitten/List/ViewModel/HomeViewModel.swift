@@ -31,8 +31,6 @@ class HomeViewModel: ObservableObject {
     func fetchAllKittens() {
         isLoading = true
         errorMessage = nil
-        // Construct the URL for fetching kittens from the API.
-        
         fetchKittensUseCase?.fetchAllKittens() { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
