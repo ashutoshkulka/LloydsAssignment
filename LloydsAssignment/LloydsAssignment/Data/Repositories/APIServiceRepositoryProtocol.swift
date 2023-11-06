@@ -9,8 +9,11 @@ import Foundation
 
 /// A protocol defining the contract for a repository responsible for fetching kitten data from a remote source.
 protocol APIServiceRepositoryProtocol {
+    /// The result type representing either a successfully decoded object or an error.
+    typealias ResponseDataProvider = Swift.Result<Decodable, APIError>
+
     /// The type representing the completion closure for fetching kittens.
-    typealias FetchCompletion = (FetchKittensUseCase.ResponseDataProvider) -> Void
+    typealias FetchCompletion = (ResponseDataProvider) -> Void
     /// Fetches data of the specified type from the provided URL asynchronously.
     ///
     /// - Parameters:

@@ -13,17 +13,21 @@ class HomeViewModelTests: XCTestCase {
     
     var viewModel: HomeViewModel!
     var mockFetchKittensUseCase: MockFetchKittensUseCase!
+    var mockMapper: MockKittenResponseToDomainDataListMapper!
     
     override func setUpWithError() throws {
         super.setUp()
-        mockFetchKittensUseCase = MockFetchKittensUseCase()
+        mockMapper = MockKittenResponseToDomainDataListMapper()
+        
+        mockFetchKittensUseCase = MockFetchKittensUseCase(mapper: mockMapper)
         viewModel = HomeViewModel(fetchKittensUseCase: mockFetchKittensUseCase)
-
+        
     }
     
     override func tearDownWithError() throws {
         viewModel = nil
         mockFetchKittensUseCase = nil
+        mockMapper = nil
         super.tearDown()
     }
     
@@ -43,8 +47,9 @@ class HomeViewModelTests: XCTestCase {
         
         let decoder = JSONDecoder()
         let response = try! decoder.decode(KittenResponse.self, from: json)
+        let domainDataList = mockMapper.mapToDomainDataList(response: response)
         
-        mockFetchKittensUseCase.result = .success(response)
+        mockFetchKittensUseCase.result = .success(domainDataList)
         
         // Act
         viewModel.fetchAllKittens()
@@ -54,10 +59,10 @@ class HomeViewModelTests: XCTestCase {
             
             // Assert
             XCTAssertFalse(self.viewModel.isLoading)
-            XCTAssertNotNil(self.viewModel.kittens)
-            XCTAssertEqual(self.viewModel.kittens?.first?.name, "Kitty 1")
-            XCTAssertEqual(self.viewModel.kittens?.first?.description, "Adorable kitten")
-            XCTAssertEqual(self.viewModel.kittens?.first?.imageUrl, "https://example.com/kitty1.jpg")
+            XCTAssertNotNil(self.viewModel.kittenDomainDataList)
+            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.name, "Kitty 1")
+            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.description, "Adorable kitten")
+            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.imageUrl, "https://example.com/kitty1.jpg")
             
             XCTAssertNil(self.viewModel.errorMessage)
             // Fulfill the expectation
@@ -77,7 +82,7 @@ class HomeViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertTrue(viewModel.isLoading)
-        XCTAssertNil(viewModel.kittens)
+        XCTAssertNil(viewModel.kittenDomainDataList?.kittenDomainData)
         
         // Wait for an expectation to be fulfilled, timeout after a certain interval
         let expectation = XCTestExpectation(description: "Fetch kittens expectation")
@@ -97,12 +102,28 @@ class HomeViewModelTests: XCTestCase {
 
 // Mock implementation of FetchKittensUseCaseProtocol for testing
 class MockFetchKittensUseCase: FetchKittensUseCaseProtocol {
-    var result: FetchKittensUseCaseProtocol.ResponseDataProvider?
-
-    func fetchAllKittens<T>(_ type: T.Type, url: URL?, completion: @escaping (FetchKittensUseCaseProtocol.ResponseDataProvider) -> Void) where T : Decodable {
-        if let stubResult = result {
-            completion(stubResult)
+    var mapper: KittensDomainDataMapperProtocol
+    
+    var result: HomeViewModelUseCase.ResponseDataProvider?
+    
+    func fetchAllKittens(url: URL?, completion: @escaping (HomeViewModelUseCase.ResponseDataProvider) -> Void) {
+        if let result = result {
+            completion(result)
         }
+    }
+    
+    init(mapper: KittensDomainDataMapperProtocol) {
+        self.mapper = mapper
+    }
+}
+
+
+
+class MockKittenResponseToDomainDataListMapper: KittensDomainDataMapperProtocol {
+    func mapToDomainDataList(response: KittenResponse) -> KittenDomainDataList {
+        return KittenDomainDataList(kittenDomainData: response.data.map { kitten in
+            return KittenDomainData(name: kitten.title, description: kitten.description, imageUrl: kitten.url)
+        })
     }
 }
 

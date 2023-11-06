@@ -29,7 +29,7 @@ struct RemoteService: APIServiceRepositoryProtocol {
                 let decoder = JSONDecoder()
                 do {
                     let kittens = try decoder.decode(type, from: data)
-                    completion(FetchKittensUseCase.ResponseDataProvider.success(kittens))
+                    completion(ResponseDataProvider.success(kittens))
                 } catch {
                     completion(Result.failure(APIError.parsing(error as? DecodingError)))
                 }

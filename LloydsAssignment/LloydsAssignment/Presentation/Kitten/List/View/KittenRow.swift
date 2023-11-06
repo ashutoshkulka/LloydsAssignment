@@ -13,7 +13,7 @@ private typealias Padding = Constants.Paddings
 struct KittenRow: View {
     /// The kitten object containing information about the kitten to be displayed in the row.
     
-    let kitten: KittenData
+    let kitten: KittenDomainData
     
     var body: some View {
         HStack {

@@ -9,10 +9,10 @@ import Foundation
 
 /// Protocol defining the contract for a view model use case responsible for managing kittens data on the home screen.
 protocol HomeViewModelUseCase: ObservableObject {
-    /// Represents the result of a data provider operation, containing either a value of type `T` or an API error.
-    typealias ResponseDataProvider<T> = Swift.Result<T, APIError>
+    /// Represents the result of a data provider operation, containing either a value of type KittenDomainDataList or an API error.
+    typealias ResponseDataProvider = Swift.Result<KittenDomainDataList, APIError>
     /// An array of kittens fetched from the data source.
-    var kittens: [KittenData]? { get }
+    var kittenDomainDataList: KittenDomainDataList? { get }
     /// An optional error message indicating any issues occurred during the data fetch operation.
     var errorMessage: String? { get }
     /// A boolean value indicating whether data is currently being loaded.

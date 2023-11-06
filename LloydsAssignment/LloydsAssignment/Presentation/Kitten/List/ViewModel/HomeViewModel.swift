@@ -9,7 +9,7 @@ import Foundation
 /// A view model responsible for managing the state and data related to displaying a list of kittens.
 class HomeViewModel: HomeViewModelUseCase, ObservableObject {
     /// Published property holding an array of kittens.
-    @Published var kittens: [KittenData]?
+    @Published var kittenDomainDataList: KittenDomainDataList?
     /// Published property holding an error message, if any, occurred during the data fetch.
     @Published var errorMessage: String?
     /// Published property indicating whether the data is currently being loaded.
@@ -33,18 +33,12 @@ class HomeViewModel: HomeViewModelUseCase, ObservableObject {
         errorMessage = nil
         // Construct the URL for fetching kittens from the API.
         let url = URL(string: Constants.URLPath.photosURL)
-        fetchKittensUseCase.fetchAllKittens(KittenResponse.self, url: url) { [weak self] result in
+        fetchKittensUseCase.fetchAllKittens(url: url) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
                 case .success(let kittens):
-                    if let kittensResponse = kittens as? KittenResponse {
-                        self?.kittens = kittensResponse.data.map { kitten in
-                            return KittenData(name: kitten.title, description: kitten.description, imageUrl: kitten.url)
-                        }
-                    } else {
-                        self?.errorMessage = Constants.String.noData
-                    }
+                    self?.kittenDomainDataList = kittens
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription
                 }

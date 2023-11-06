@@ -13,7 +13,7 @@ private typealias Padding = Constants.Paddings
 /// A view displaying detailed information about a specific kitten, including its image, title, description, and URL.
 struct KittenDetailView: View {
     /// The kitten object containing detailed information about the displayed kitten.
-    let kitten: KittenData
+    let kitten: KittenDomainData
     
     var body: some View {
         ScrollView {

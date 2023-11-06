@@ -24,7 +24,7 @@ class APIServiceRepository: APIServiceRepositoryProtocol {
     ///   - type: The type to decode the fetched data into, conforming to the `Decodable` protocol.
     ///   - url: The URL from which to fetch the data.
     ///   - completion: A closure to be called once the fetch operation is completed. It contains a `Result` object representing either the decoded data or an error.
-    func execute<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping (FetchKittensUseCase.ResponseDataProvider) -> Void) {
+    func execute<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping (ResponseDataProvider) -> Void) {
         repository.execute(type, url: url, completion: completion)
     }
 }

@@ -34,7 +34,7 @@ struct HomeView <ViewModel>: View where ViewModel: HomeViewModelUseCase {
                     homeViewModel.fetchAllKittens()
                 }
             } else {
-                if let kittens = homeViewModel.kittens {
+                if let kittens = homeViewModel.kittenDomainDataList?.kittenDomainData {
                     List(kittens, id: \.otherID) { kitten in
                         NavigationLink {
                             KittenDetailView(kitten: kitten)
