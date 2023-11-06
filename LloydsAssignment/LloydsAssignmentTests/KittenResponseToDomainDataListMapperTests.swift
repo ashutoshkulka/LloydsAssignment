@@ -35,12 +35,12 @@ class KittenResponseToDomainDataListMapperTests: XCTestCase {
         let domainDataList = mapper.mapToDomainDataList(response: kittenResponse)
         
         // Assert
-        XCTAssertEqual(domainDataList.kittenDomainData.count, 2)
-        XCTAssertEqual(domainDataList.kittenDomainData[0].name, "Kitty 1")
-        XCTAssertEqual(domainDataList.kittenDomainData[0].description, "Adorable kitten")
-        XCTAssertEqual(domainDataList.kittenDomainData[0].imageUrl, "https://example.com/kitty1.jpg")
-        XCTAssertEqual(domainDataList.kittenDomainData[1].name, "Kitty 2")
-        XCTAssertEqual(domainDataList.kittenDomainData[1].description, "Cute kitten")
-        XCTAssertEqual(domainDataList.kittenDomainData[1].imageUrl, "https://example.com/kitty2.jpg")
+        XCTAssertEqual(domainDataList.kittenDomainObjects.count, 2)
+        XCTAssertEqual(domainDataList.kittenDomainObjects[0].name, "Kitty 1")
+        XCTAssertEqual(domainDataList.kittenDomainObjects[0].description, "Adorable kitten")
+        XCTAssertEqual(domainDataList.kittenDomainObjects[0].imageUrl, "https://example.com/kitty1.jpg")
+        XCTAssertEqual(domainDataList.kittenDomainObjects[1].name, "Kitty 2")
+        XCTAssertEqual(domainDataList.kittenDomainObjects[1].description, "Cute kitten")
+        XCTAssertEqual(domainDataList.kittenDomainObjects[1].imageUrl, "https://example.com/kitty2.jpg")
     }
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 /// The main view displaying a list of kittens or an error message in case of failure.
-struct HomeView <ViewModel>: View where ViewModel: HomeViewModelUseCase {
+struct HomeView: View {
     
     /// The view model responsible for managing home-related data and actions.
-    @ObservedObject var homeViewModel: ViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
     var body: some View {
         NavigationView {
@@ -34,12 +34,12 @@ struct HomeView <ViewModel>: View where ViewModel: HomeViewModelUseCase {
                     homeViewModel.fetchAllKittens()
                 }
             } else {
-                if let kittens = homeViewModel.kittenDomainDataList?.kittenDomainData {
+                if let kittens = homeViewModel.kittenDomainObjects {
                     List(kittens, id: \.otherID) { kitten in
                         NavigationLink {
-                            KittenDetailView(kitten: kitten)
+                            KittenDetailView(kittenDomainObject: kitten)
                         } label: {
-                            KittenRow(kitten: kitten)
+                            KittenRow(kittenDomainObject: kitten)
                         }
                     }
                 } else {

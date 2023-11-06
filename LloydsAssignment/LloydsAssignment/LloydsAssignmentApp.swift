@@ -13,8 +13,8 @@ struct LloydsAssignmentApp: App {
         WindowGroup {
             let service = RemoteService()
             let mapper = KittenResponseToDomainDataListMapper()
-            let fetchKittensUseCase = FetchKittensUseCase(repository: service,
-                                                          mapper: mapper)
+            let repository = Repository(service: service, mapper: mapper)
+            let fetchKittensUseCase = FetchKittensUseCase(repository: repository)
             let homeViewModel = HomeViewModel(fetchKittensUseCase: fetchKittensUseCase)
             HomeView(homeViewModel: homeViewModel)
         }

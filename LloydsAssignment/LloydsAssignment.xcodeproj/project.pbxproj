@@ -19,6 +19,7 @@
 		8E4925F92AD5633E00D39E4B /* LloydsAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4925F82AD5633E00D39E4B /* LloydsAssignmentUITestsLaunchTests.swift */; };
 		8E4926192AD9CEE200D39E4B /* KittenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4926182AD9CEE200D39E4B /* KittenResponse.swift */; };
 		8E5613EA2ADA986F005C49D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5613E92ADA986F005C49D7 /* Constants.swift */; };
+		8E5614C92AF9005500B0ECB8 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5614C82AF9005500B0ECB8 /* ServiceProtocol.swift */; };
 		8EA2501B2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */; };
 		8EA2501D2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501C2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift */; };
 		8EA2501F2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */; };
@@ -28,12 +29,9 @@
 		8EAFBBFA2AEF8A96003E204D /* KittenDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBF52AEF8A95003E204D /* KittenDetailView.swift */; };
 		8EAFBC002AEF8B53003E204D /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFB2AEF8B53003E204D /* RemoteService.swift */; };
 		8EAFBC032AEF8B53003E204D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFE2AEF8B53003E204D /* HomeViewModel.swift */; };
-		8EAFBC042AEF8B53003E204D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFBBFF2AEF8B53003E204D /* APIError.swift */; };
 		8EC2BE8B2AF3798000CEC3AC /* FetchKittensUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BE8A2AF3798000CEC3AC /* FetchKittensUseCase.swift */; };
-		8EC2BE8D2AF37A0700CEC3AC /* APIServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BE8C2AF37A0700CEC3AC /* APIServiceRepositoryProtocol.swift */; };
-		8EC2BE912AF38EA400CEC3AC /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BE902AF38EA400CEC3AC /* APIErrorTests.swift */; };
-		8EC2BE972AF4C92D00CEC3AC /* HomeViewModelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BE962AF4C92D00CEC3AC /* HomeViewModelUseCase.swift */; };
-		8EC2BEA52AF4FB5C00CEC3AC /* APIServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BEA42AF4FB5C00CEC3AC /* APIServiceRepository.swift */; };
+		8EC2BE8D2AF37A0700CEC3AC /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BE8C2AF37A0700CEC3AC /* RepositoryProtocol.swift */; };
+		8EC2BEA52AF4FB5C00CEC3AC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BEA42AF4FB5C00CEC3AC /* Repository.swift */; };
 		8EC2BEAC2AF50A2F00CEC3AC /* FetchKittensUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2BEAB2AF50A2F00CEC3AC /* FetchKittensUseCaseProtocol.swift */; };
 		8ECA35ED2AF0FF3D007702B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA35EC2AF0FF3D007702B3 /* HomeView.swift */; };
 		8EE877CC2ADF8BE90047DA05 /* KittenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */; };
@@ -76,6 +74,7 @@
 		8E4925F82AD5633E00D39E4B /* LloydsAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LloydsAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8E4926182AD9CEE200D39E4B /* KittenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KittenResponse.swift; sourceTree = "<group>"; };
 		8E5613E92ADA986F005C49D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E5614C82AF9005500B0ECB8 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittensDomainDataMapperProtocol.swift; sourceTree = "<group>"; };
 		8EA2501C2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenResponseToDomainDataListMapper.swift; sourceTree = "<group>"; };
 		8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenResponseToDomainDataListMapperTests.swift; sourceTree = "<group>"; };
@@ -85,12 +84,9 @@
 		8EAFBBF52AEF8A95003E204D /* KittenDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KittenDetailView.swift; sourceTree = "<group>"; };
 		8EAFBBFB2AEF8B53003E204D /* RemoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
 		8EAFBBFE2AEF8B53003E204D /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		8EAFBBFF2AEF8B53003E204D /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		8EC2BE8A2AF3798000CEC3AC /* FetchKittensUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchKittensUseCase.swift; sourceTree = "<group>"; };
-		8EC2BE8C2AF37A0700CEC3AC /* APIServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
-		8EC2BE902AF38EA400CEC3AC /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
-		8EC2BE962AF4C92D00CEC3AC /* HomeViewModelUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelUseCase.swift; sourceTree = "<group>"; };
-		8EC2BEA42AF4FB5C00CEC3AC /* APIServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceRepository.swift; sourceTree = "<group>"; };
+		8EC2BE8C2AF37A0700CEC3AC /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		8EC2BEA42AF4FB5C00CEC3AC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8EC2BEAB2AF50A2F00CEC3AC /* FetchKittensUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchKittensUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8ECA35EC2AF0FF3D007702B3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittenTests.swift; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 			children = (
 				8E4925EC2AD5633E00D39E4B /* LloydsAssignmentTests.swift */,
 				8EE877CB2ADF8BE90047DA05 /* KittenTests.swift */,
-				8EC2BE902AF38EA400CEC3AC /* APIErrorTests.swift */,
 				8E1306972AF51D02000FC12B /* KittenDataTests.swift */,
 				8EA2501E2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift */,
 			);
@@ -232,10 +227,19 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		8E5614CA2AF9009D00B0ECB8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8EC2BE8C2AF37A0700CEC3AC /* RepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		8EA250192AF7493A00CE852F /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
 				8EA2501C2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift */,
+				8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -296,7 +300,6 @@
 		8EC2BE9E2AF4F9F600CEC3AC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8EC2BE962AF4C92D00CEC3AC /* HomeViewModelUseCase.swift */,
 				8EAFBBFE2AEF8B53003E204D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -305,11 +308,10 @@
 		8EC2BE9F2AF4FA4400CEC3AC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				8EA250192AF7493A00CE852F /* Mapper */,
+				8E5614CA2AF9009D00B0ECB8 /* Repository */,
 				8E1306772AF516A2000FC12B /* Models */,
 				8EC2BEA72AF4FCEB00CEC3AC /* Protocols */,
 				8EC2BEA62AF4FC9B00CEC3AC /* UseCases */,
-				8EC2BEA22AF4FA9500CEC3AC /* Error */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -320,14 +322,6 @@
 				8E4926182AD9CEE200D39E4B /* KittenResponse.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		8EC2BEA22AF4FA9500CEC3AC /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				8EAFBBFF2AEF8B53003E204D /* APIError.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		8EC2BEA62AF4FC9B00CEC3AC /* UseCases */ = {
@@ -341,7 +335,6 @@
 		8EC2BEA72AF4FCEB00CEC3AC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				8EA2501A2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift */,
 				8EC2BEAB2AF50A2F00CEC3AC /* FetchKittensUseCaseProtocol.swift */,
 			);
 			path = Protocols;
@@ -350,8 +343,7 @@
 		8EC2BEA82AF4FD2000CEC3AC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				8EC2BE8C2AF37A0700CEC3AC /* APIServiceRepositoryProtocol.swift */,
-				8EC2BEA42AF4FB5C00CEC3AC /* APIServiceRepository.swift */,
+				8EC2BEA42AF4FB5C00CEC3AC /* Repository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -359,6 +351,7 @@
 		8EC2BEA92AF5075A00CEC3AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8EA250192AF7493A00CE852F /* Mapper */,
 				8EC2BEA02AF4FA6600CEC3AC /* Models */,
 				8EC2BEA82AF4FD2000CEC3AC /* Repositories */,
 				8EC2BEAA2AF5076A00CEC3AC /* Service */,
@@ -370,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				8EAFBBFB2AEF8B53003E204D /* RemoteService.swift */,
+				8E5614C82AF9005500B0ECB8 /* ServiceProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -616,7 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EC2BEA52AF4FB5C00CEC3AC /* APIServiceRepository.swift in Sources */,
+				8EC2BEA52AF4FB5C00CEC3AC /* Repository.swift in Sources */,
 				8E4926192AD9CEE200D39E4B /* KittenResponse.swift in Sources */,
 				8EAFBBFA2AEF8A96003E204D /* KittenDetailView.swift in Sources */,
 				8EA2501B2AF7497100CE852F /* KittensDomainDataMapperProtocol.swift in Sources */,
@@ -626,15 +620,14 @@
 				8E5613EA2ADA986F005C49D7 /* Constants.swift in Sources */,
 				8EA2501D2AF749CD00CE852F /* KittenResponseToDomainDataListMapper.swift in Sources */,
 				8EAFBC002AEF8B53003E204D /* RemoteService.swift in Sources */,
-				8EC2BE8D2AF37A0700CEC3AC /* APIServiceRepositoryProtocol.swift in Sources */,
+				8EC2BE8D2AF37A0700CEC3AC /* RepositoryProtocol.swift in Sources */,
 				8EC2BEAC2AF50A2F00CEC3AC /* FetchKittensUseCaseProtocol.swift in Sources */,
 				8EAFBBF92AEF8A96003E204D /* ErrorView.swift in Sources */,
 				8EAFBC032AEF8B53003E204D /* HomeViewModel.swift in Sources */,
 				8ECA35ED2AF0FF3D007702B3 /* HomeView.swift in Sources */,
-				8EC2BE972AF4C92D00CEC3AC /* HomeViewModelUseCase.swift in Sources */,
 				8EAFBBF62AEF8A96003E204D /* LoadingView.swift in Sources */,
+				8E5614C92AF9005500B0ECB8 /* ServiceProtocol.swift in Sources */,
 				8E1306792AF516DC000FC12B /* KittenDomainData.swift in Sources */,
-				8EAFBC042AEF8B53003E204D /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +637,6 @@
 			files = (
 				8E1306982AF51D02000FC12B /* KittenDataTests.swift in Sources */,
 				8EA2501F2AF89C0500CE852F /* KittenResponseToDomainDataListMapperTests.swift in Sources */,
-				8EC2BE912AF38EA400CEC3AC /* APIErrorTests.swift in Sources */,
 				8EE877CC2ADF8BE90047DA05 /* KittenTests.swift in Sources */,
 				8E4925ED2AD5633E00D39E4B /* LloydsAssignmentTests.swift in Sources */,
 			);

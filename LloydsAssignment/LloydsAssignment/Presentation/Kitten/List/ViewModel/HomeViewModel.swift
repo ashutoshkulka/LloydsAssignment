@@ -7,15 +7,15 @@
 import Foundation
 
 /// A view model responsible for managing the state and data related to displaying a list of kittens.
-class HomeViewModel: HomeViewModelUseCase, ObservableObject {
+class HomeViewModel: ObservableObject {
     /// Published property holding an array of kittens.
-    @Published var kittenDomainDataList: KittenDomainDataList?
+    @Published var kittenDomainObjects: [KittenDomainObject]?
     /// Published property holding an error message, if any, occurred during the data fetch.
     @Published var errorMessage: String?
     /// Published property indicating whether the data is currently being loaded.
     @Published var isLoading: Bool = false
     /// The use case responsible for fetching kittens.
-    private let fetchKittensUseCase: FetchKittensUseCaseProtocol
+    private let fetchKittensUseCase: FetchKittensUseCaseProtocol?
  
     /// Initializes the view model with a given fetchKittensUseCase.
     /// - Parameter fetchKittensUseCase: The use case responsible for fetching kittens.
@@ -32,13 +32,13 @@ class HomeViewModel: HomeViewModelUseCase, ObservableObject {
         isLoading = true
         errorMessage = nil
         // Construct the URL for fetching kittens from the API.
-        let url = URL(string: Constants.URLPath.photosURL)
-        fetchKittensUseCase.fetchAllKittens(url: url) { [weak self] result in
+        
+        fetchKittensUseCase?.fetchAllKittens() { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
-                case .success(let kittens):
-                    self?.kittenDomainDataList = kittens
+                case .success(let kittenDomainModel):
+                    self?.kittenDomainObjects = kittenDomainModel?.kittenDomainObjects
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription
                 }

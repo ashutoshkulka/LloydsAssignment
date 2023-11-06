@@ -6,35 +6,42 @@
 
 import Foundation
 
+private enum CustomError: Error {
+    case invalidURL
+    case networkError
+}
+
+/// A nested struct containing URL paths used for network requests.
+private struct URLPath {
+    /// The URL path for fetching photos from a remote server.
+    static let photosURL = "https://fakerapi.it/api/v1/images?_quantity=99&_type=kittens&_height=300"
+}
+
 /// A service responsible for making API requests and handling responses.
-struct RemoteService: APIServiceRepositoryProtocol {
+struct RemoteService: ServiceProtocol {
     /// Fetches a list of kittens from the API.
     ///
     /// - Parameters:
-    ///   - url: The URL to fetch the kittens from.
     ///   - completion: A closure to be called once the fetch operation is completed. It contains a `Result` object representing either the array of kittens or an error.
-    func execute<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping APIServiceRepositoryProtocol.FetchCompletion) {
-        guard let url = url else {
-            let error = APIError.badURL
-            completion(Result.failure(error))
+    func fetchAllKittens(completion: @escaping ServiceProtocol.FetchCompletion) {
+        guard let url = URL(string: URLPath.photosURL) else {
+            completion(Result.failure(CustomError.invalidURL))
             return
         }
-        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error as? URLError {
-                completion(Result.failure(APIError.url(error)))
-            } else if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                completion(Result.failure(APIError.badResponse(statusCode: response.statusCode)))
+            if let error = error {
+                completion(Result.failure(error))
             } else if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let kittens = try decoder.decode(type, from: data)
+                    let kittens = try decoder.decode(KittenResponse.self, from: data)
                     completion(ResponseDataProvider.success(kittens))
-                } catch {
-                    completion(Result.failure(APIError.parsing(error as? DecodingError)))
+                } catch let error {
+                    completion(Result.failure(error))
                 }
             }
         }
         task.resume()
     }
 }
+

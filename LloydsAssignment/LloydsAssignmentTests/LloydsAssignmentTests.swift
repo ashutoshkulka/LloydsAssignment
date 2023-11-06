@@ -19,7 +19,7 @@ class HomeViewModelTests: XCTestCase {
         super.setUp()
         mockMapper = MockKittenResponseToDomainDataListMapper()
         
-        mockFetchKittensUseCase = MockFetchKittensUseCase(mapper: mockMapper)
+        mockFetchKittensUseCase = MockFetchKittensUseCase()
         viewModel = HomeViewModel(fetchKittensUseCase: mockFetchKittensUseCase)
         
     }
@@ -59,10 +59,10 @@ class HomeViewModelTests: XCTestCase {
             
             // Assert
             XCTAssertFalse(self.viewModel.isLoading)
-            XCTAssertNotNil(self.viewModel.kittenDomainDataList)
-            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.name, "Kitty 1")
-            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.description, "Adorable kitten")
-            XCTAssertEqual(self.viewModel.kittenDomainDataList?.kittenDomainData.first?.imageUrl, "https://example.com/kitty1.jpg")
+            XCTAssertNotNil(self.viewModel.kittenDomainModel)
+            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.name, "Kitty 1")
+            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.description, "Adorable kitten")
+            XCTAssertEqual(self.viewModel.kittenDomainModel?.kittenDomainObjects.first?.imageUrl, "https://example.com/kitty1.jpg")
             
             XCTAssertNil(self.viewModel.errorMessage)
             // Fulfill the expectation
@@ -76,13 +76,13 @@ class HomeViewModelTests: XCTestCase {
     
     func testFetchKittensFailure() {
         // Arrange
-        mockFetchKittensUseCase.result = .failure(.badURL)
+        mockFetchKittensUseCase.result = .failure(CustomError.invalidURL)
         // Act
         viewModel.fetchAllKittens()
         
         // Assert
         XCTAssertTrue(viewModel.isLoading)
-        XCTAssertNil(viewModel.kittenDomainDataList?.kittenDomainData)
+        XCTAssertNil(viewModel.kittenDomainModel?.kittenDomainObjects)
         
         // Wait for an expectation to be fulfilled, timeout after a certain interval
         let expectation = XCTestExpectation(description: "Fetch kittens expectation")
@@ -102,28 +102,27 @@ class HomeViewModelTests: XCTestCase {
 
 // Mock implementation of FetchKittensUseCaseProtocol for testing
 class MockFetchKittensUseCase: FetchKittensUseCaseProtocol {
-    var mapper: KittensDomainDataMapperProtocol
-    
-    var result: HomeViewModelUseCase.ResponseDataProvider?
-    
-    func fetchAllKittens(url: URL?, completion: @escaping (HomeViewModelUseCase.ResponseDataProvider) -> Void) {
+    var result: ResponseDomainDataProvider?
+    func fetchAllKittens(completion: @escaping (ResponseDomainDataProvider) -> Void) {
         if let result = result {
             completion(result)
         }
-    }
-    
-    init(mapper: KittensDomainDataMapperProtocol) {
-        self.mapper = mapper
     }
 }
 
 
 
 class MockKittenResponseToDomainDataListMapper: KittensDomainDataMapperProtocol {
-    func mapToDomainDataList(response: KittenResponse) -> KittenDomainDataList {
-        return KittenDomainDataList(kittenDomainData: response.data.map { kitten in
-            return KittenDomainData(name: kitten.title, description: kitten.description, imageUrl: kitten.url)
+    func mapToDomainDataList(response: KittenResponse) -> KittenDomainModel {
+        return KittenDomainModel(kittenDomainObjects: response.data.map { kitten in
+            return KittenDomainObject(name: kitten.title, description: kitten.description, imageUrl: kitten.url)
         })
     }
 }
 
+
+
+private enum CustomError: Error {
+    case invalidURL
+    case networkError
+}

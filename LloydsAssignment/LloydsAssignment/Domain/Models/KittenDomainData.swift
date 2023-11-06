@@ -1,5 +1,5 @@
 //
-//  KittenDomainData.swift
+//  KittenDomainModel.swift
 //  LloydsAssignment
 //
 //  Created by Ashutosh Kulkarni on 03/11/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct KittenDomainDataList: Equatable {
-    let kittenDomainData: [KittenDomainData]
+struct KittenDomainModel: Equatable {
+    let kittenDomainObjects: [KittenDomainObject]
 }
 
 /// Represents data for a kitten, including its name, description, and image URL.
-struct KittenDomainData: Equatable {
+struct KittenDomainObject: Equatable {
     let otherID = "other\(UUID())"
     /// The name of the kitten.
     let name: String

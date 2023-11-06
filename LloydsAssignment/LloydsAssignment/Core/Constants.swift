@@ -43,10 +43,4 @@ struct Constants {
         /// A message to display when fetching data, such as cat information.
         static let gettingData = "Getting the cats ..."
     }
-    
-    /// A nested struct containing URL paths used for network requests.
-    struct URLPath {
-        /// The URL path for fetching photos from a remote server.
-        static let photosURL = "https://fakerapi.it/api/v1/images?_quantity=99&_type=kittens&_height=300"
-    }
 }
