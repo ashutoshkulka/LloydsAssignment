@@ -11,7 +11,7 @@ class Repository: RepositoryProtocol {
     /// The service responsible for providing data fetching functionalities.
     private let service: ServiceProtocol
     /// An object conforming to `KittensDomainDataMapperProtocol` responsible for mapping data from `KittenResponse` to `KittenDomainModel`.
-    var mapper: KittensDomainDataMapperProtocol
+    private var mapper: KittensDomainDataMapperProtocol
     /// Initializes the interactor with a specific repository.
     ///
     /// - Parameter service: An object conforming to `ServiceProtocol` protocol, providing data fetching functionalities. and mapper to Map data to DomainData
